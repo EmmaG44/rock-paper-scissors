@@ -8,7 +8,8 @@ function playRound(playerSelection, computerSelection) {
     const capPlayerSelection = (playerSelection.charAt(0)).toUpperCase() + (playerSelection.substring(1)).toLowerCase();
     
     if (capPlayerSelection === computerSelection) {
-        return `It is a draw. Both chose ${capPlayerSelection}`;
+        //return `It is a draw. Both chose ${capPlayerSelection}`;
+        return "draw";
     }
 
     else {
@@ -38,14 +39,42 @@ function playRound(playerSelection, computerSelection) {
     }
 
     if (playerWins) {
-        return `You Win! ${capPlayerSelection} beats ${computerSelection}`;
+        //return `You Win! ${capPlayerSelection} beats ${computerSelection}`;
+        return "player";
     }
     else {
-        return `You Lose! ${computerSelection} beats ${capPlayerSelection}`
+        //return `You Lose! ${computerSelection} beats ${capPlayerSelection}`
+        return "computer";
+    }
+}
+
+
+function game() {
+    let playerWinCount = 0;
+    let compWinCount = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let roundResult = playRound(playerSelection, computerSelection);
+        if (roundResult === "player") {
+            playerWinCount += 1;
+        }
+        else if (roundResult === "computer") {
+            compWinCount += 1;
+        }
     }
 
+    if (playerWinCount > compWinCount) {
+        return `Player: ${playerWinCount} Computer: ${compWinCount}. Player Wins`;
+    }
+    else if (compWinCount > playerWinCount) {
+        return `Player: ${playerWinCount} Computer: ${compWinCount}. Computer Wins`;
+    }
+    else {
+        return `It is a draw. Both got ${playerWinCount}`
+    }
 }
+
 
 const playerSelection = "pAPER";
 const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+console.log(game());
