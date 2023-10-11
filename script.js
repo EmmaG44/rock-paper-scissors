@@ -54,6 +54,9 @@ function game() {
     let compWinCount = 0;
 
     for (let i = 0; i < 5; i++) {
+        const playerSelection = prompt("Enter Rock, Paper or Scissors");
+        const computerSelection = getComputerChoice();
+
         let roundResult = playRound(playerSelection, computerSelection);
         if (roundResult === "player") {
             playerWinCount += 1;
@@ -75,6 +78,4 @@ function game() {
 }
 
 
-const playerSelection = "pAPER";
-const computerSelection = getComputerChoice();
 console.log(game());
