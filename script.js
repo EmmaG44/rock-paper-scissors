@@ -46,7 +46,15 @@ function playRound(playerSelection, computerSelection) {
         //return `You Lose! ${computerSelection} beats ${capPlayerSelection}`
         return "computer";
     }
+
+    
 }
+
+/*button.forEach(button =>{
+    button.addEventListener('click', function(){
+        playRound(button.value)
+    })
+})*/
 
 
 function game() {
@@ -55,6 +63,7 @@ function game() {
 
     for (let i = 0; i < 5; i++) {
         const playerSelection = prompt("Enter Rock, Paper or Scissors");
+        
         const computerSelection = getComputerChoice();
 
         let roundResult = playRound(playerSelection, computerSelection);
